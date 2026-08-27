@@ -1,0 +1,74 @@
+/* ============================================================
+   Ninja Selling — Color tokens
+   Source: Ninja Selling Brand Guide v1.0 (April 2026)
+   No navy anywhere. Warm neutrals + quiet accents.
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette (raw) ---- */
+  --cream:      #EEEAE6;  /* primary light background */
+  --khaki:      #D7CFBB;  /* primary neutral */
+  --copper:     #977B58;  /* PMS 119U — CTAs, accents */
+  --ocean:      #576F7C;  /* cool accent */
+  --cool-black: #363A36;  /* PMS Neutral Black U — text, dark bg */
+  --olive:      #485237;  /* secondary accent */
+  --mauve:      #8E6C69;  /* secondary accent */
+
+  /* ---- Tints & shades (derived, warm-biased) ---- */
+  --cream-deep:   #E4DED6;  /* cream, one step down — hairlines on cream */
+  --khaki-soft:   #E3DDCF;  /* between cream and khaki */
+  --khaki-deep:   #C7BCA1;  /* khaki pressed / borders on khaki */
+
+  --copper-hover: #856A4A;  /* copper darkened for hover */
+  --copper-press: #705942;  /* copper darkened for press */
+  --copper-tint:  #EDE6DC;  /* copper wash — selected rows, badges */
+
+  --ocean-hover:  #4B606B;
+  --ocean-tint:   #E4E8EA;
+
+  --olive-tint:   #E5E7DF;
+  --mauve-tint:   #EDE4E2;
+
+  --cool-black-80: #4A4E49;  /* softened ink for secondary text */
+  --cool-black-60: #6E726C;  /* muted text */
+  --cool-black-40: #9A9D97;  /* placeholder / disabled ink */
+
+  /* ---- Surfaces ---- */
+  --surface-page:     var(--cream);      /* app canvas */
+  --surface-card:     #FFFFFF;           /* cards sit brighter than the cream page */
+  --surface-raised:   #FFFFFF;           /* menus, popovers, dialogs */
+  --surface-sunken:   var(--khaki-soft); /* wells, inputs at rest, section bands */
+  --surface-inverse:  var(--cool-black); /* dark panels */
+  --surface-selected: var(--copper-tint);
+
+  /* ---- Text ---- */
+  --text-strong:   var(--cool-black);      /* headlines, primary */
+  --text-body:     var(--cool-black-80);   /* long-form body */
+  --text-muted:    var(--cool-black-60);   /* labels, meta, captions */
+  --text-subtle:   var(--cool-black-40);   /* placeholder, disabled */
+  --text-on-dark:  var(--cream);           /* text on cool-black / copper */
+  --text-accent:   var(--copper);          /* linked / accented text */
+  --text-link:     var(--ocean);
+
+  /* ---- Borders / hairlines ---- */
+  --border-hairline: #DED7CC;             /* default 1px divider on cream/white */
+  --border-soft:     var(--khaki);        /* stronger separation */
+  --border-strong:   var(--khaki-deep);   /* input outlines, focus base */
+  --border-inverse:  rgba(238,234,230,0.16);
+
+  /* ---- Interactive / semantic ---- */
+  --accent:            var(--copper);      /* primary action */
+  --accent-hover:      var(--copper-hover);
+  --accent-press:      var(--copper-press);
+  --accent-quiet:      var(--copper-tint);
+
+  --focus-ring:        var(--ocean);       /* focus outline color */
+
+  /* Quiet, non-alarming semantics (no dopamine reds/greens) */
+  --positive:      var(--olive);           /* completed / on-track */
+  --positive-tint: var(--olive-tint);
+  --info:          var(--ocean);
+  --info-tint:     var(--ocean-tint);
+  --attention:     var(--mauve);           /* needs-attention (never alarm-red) */
+  --attention-tint:var(--mauve-tint);
+}

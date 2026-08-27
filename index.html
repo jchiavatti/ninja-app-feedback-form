@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ninja Selling app feedback</title>
+<meta name="description" content="Tell us what's on your mind — a bug, an idea, or a win from the Ninja Selling platform.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo-primary.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap">
+
+<link rel="stylesheet" href="css/tokens.css?v=1">
+<link rel="stylesheet" href="css/app.css?v=1">
+</head>
+<body>
+
+<!-- Inline Lucide glyphs (stroke width 2), referenced with <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 6 9 17l-5-5"/>
+  </symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m6 9 6 6 6-6"/>
+  </symbol>
+</svg>
+
+<main class="page">
+  <div class="column">
+
+    <div class="logo-row">
+      <img src="assets/logo-primary.png" alt="Ninja Selling">
+    </div>
+
+    <header class="masthead">
+      <div class="eyebrow">Ninja Selling app feedback</div>
+      <h1>Tell us what&rsquo;s on your mind.</h1>
+      <p class="lead">
+        Please note this form is for non-urgent items. If your item is urgent, please email us at
+        <a href="mailto:techsupport@ninjaselling.com">techsupport@ninjaselling.com</a>
+      </p>
+    </header>
+
+    <!-- Success confirmation -->
+    <div class="confirmation nc-reveal" id="confirmation" hidden>
+      <div class="dot"></div>
+      <div class="msg">Thank you — that came through. We&rsquo;ll follow up if we need more detail.</div>
+    </div>
+
+    <form id="feedback-form" novalidate>
+
+      <!-- Honeypot: bots fill this, people never see it -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="column">
+
+        <!-- Card 1 — type picker -->
+        <section class="card">
+          <div class="card-head">
+            <div class="card-title" id="type-label">What kind of note is this?</div>
+            <div class="card-sub">Pick one to get started.</div>
+          </div>
+          <div class="type-grid" role="group" aria-labelledby="type-label" id="type-grid">
+            <button type="button" class="type-option" data-type="broken" aria-pressed="false">
+              <span class="t-title">Something isn&rsquo;t working</span>
+              <span class="t-blurb">A piece of the platform is broken or behaving oddly.</span>
+            </button>
+            <button type="button" class="type-option" data-type="idea" aria-pressed="false">
+              <span class="t-title">I have an idea</span>
+              <span class="t-blurb">Something that would make your day easier.</span>
+            </button>
+            <button type="button" class="type-option" data-type="win" aria-pressed="false">
+              <span class="t-title">Something worked well</span>
+              <span class="t-blurb">A win worth passing along to the team.</span>
+            </button>
+          </div>
+          <div class="error-line" id="err-type" hidden>Choose one so we know where to send this.</div>
+        </section>
+
+        <!-- Everything below is revealed once a type is chosen -->
+        <div class="stack-24" id="lower" hidden>
+
+          <!-- Card 2 — who -->
+          <section class="card">
+            <div class="card-title">Who is this about?</div>
+
+            <label class="checkbox" for="on-behalf">
+              <input type="checkbox" id="on-behalf">
+              <span class="box" aria-hidden="true"><svg width="15" height="15"><use href="#i-check"/></svg></span>
+              <span class="text">
+                <span class="c-label">I&rsquo;m submitting this on behalf of another Ninja</span>
+                <span class="c-desc">Coaches and support staff — we&rsquo;ll ask for their details too.</span>
+              </span>
+            </label>
+
+            <div class="identity-summary" id="identity-summary" hidden>
+              <div id="identity-summary-text"></div>
+              <button type="button" class="btn-text" id="edit-identity">Edit</button>
+            </div>
+
+            <div class="stack-16" id="identity-fields">
+              <div class="eyebrow">Your information</div>
+              <div class="two-up">
+                <div class="field" id="f-submitter-name">
+                  <label for="submitter-name">Your name</label>
+                  <div class="control">
+                    <input type="text" id="submitter-name" placeholder="Jane Rivera"
+                           autocomplete="name" maxlength="120">
+                  </div>
+                </div>
+                <div class="field" id="f-submitter-email">
+                  <label for="submitter-email">Your email</label>
+                  <div class="control">
+                    <input type="email" id="submitter-email" placeholder="jane@example.com"
+                           autocomplete="email" maxlength="200">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ruled-block" id="affected-block" hidden>
+              <div class="eyebrow">Ninja experiencing the issue</div>
+              <div class="two-up">
+                <div class="field" id="f-affected-name">
+                  <label for="affected-name">Their name</label>
+                  <div class="control">
+                    <input type="text" id="affected-name" placeholder="Full name"
+                           autocomplete="off" maxlength="120">
+                  </div>
+                </div>
+                <div class="field" id="f-affected-email">
+                  <label for="affected-email">Their email</label>
+                  <div class="control">
+                    <input type="email" id="affected-email" placeholder="name@example.com"
+                           autocomplete="off" maxlength="200">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Card 3 — details -->
+          <section class="card">
+            <div class="card-title">The details</div>
+
+            <div class="two-up" id="context-top" hidden>
+              <div class="field">
+                <label for="screen">Where in the platform?</label>
+                <div class="control control-select">
+                  <select id="screen">
+                    <option value="">Choose a screen</option>
+                  </select>
+                  <span class="chevron"><svg width="18" height="18"><use href="#i-chevron-down"/></svg></span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="platform">What were you using?</label>
+                <div class="control control-select">
+                  <select id="platform"></select>
+                  <span class="chevron"><svg width="18" height="18"><use href="#i-chevron-down"/></svg></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" id="f-description">
+              <label for="description" id="description-label">What happened?</label>
+              <textarea class="control-textarea" id="description" rows="6" maxlength="5000"
+                        placeholder="Plain language is perfect — what you expected, and what happened instead."></textarea>
+              <span class="field-hint" id="description-hint" hidden>The steps you took, if you remember them, help a lot.</span>
+            </div>
+
+            <div class="field" id="context-timing" hidden>
+              <label for="timing">When did this happen?</label>
+              <div class="control control-select">
+                <select id="timing"></select>
+                <span class="chevron"><svg width="18" height="18"><use href="#i-chevron-down"/></svg></span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Card 4 — screenshots -->
+          <section class="card">
+            <div class="card-head">
+              <div class="card-title">Add a screenshot</div>
+              <div class="card-sub" id="shot-hint">Optional, but it usually saves a round of questions.</div>
+            </div>
+
+            <button type="button" class="dropzone" id="dropzone">
+              <span class="dz-primary">Press <span id="paste-key">&#8984;V</span> to paste a screenshot</span>
+              <span class="dz-secondary">Or drag an image here, or click to browse your files.</span>
+            </button>
+            <input type="file" id="file-input" accept="image/*" multiple hidden>
+
+            <div class="thumbs" id="thumbs" hidden></div>
+            <p class="sr-only" id="attach-status" role="status" aria-live="polite"></p>
+          </section>
+
+          <!-- Submit -->
+          <div class="submit-block">
+            <div style="padding-top:4px;">
+              <label class="checkbox" for="acknowledged">
+                <input type="checkbox" id="acknowledged">
+                <span class="box" aria-hidden="true"><svg width="15" height="15"><use href="#i-check"/></svg></span>
+                <span class="text">
+                  <span class="c-label">I understand that the information will be reviewed, but on a non-urgent basis. Anything urgent is to be handled by our support team at tech@ninjaselling.com</span>
+                </span>
+              </label>
+              <div class="error-line error-line--ack" id="err-ack" hidden>Please check this box so we can send your note along.</div>
+            </div>
+
+            <div class="error-banner" id="err-banner" hidden>We need a bit more here to help — check the highlighted fields above.</div>
+            <div class="error-banner" id="err-submit" hidden></div>
+
+            <div class="actions">
+              <button type="submit" class="btn btn-primary" id="submit-btn">Submit Feedback</button>
+              <button type="button" class="btn btn-secondary" id="submit-another-btn">Send and add another</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script src="js/config.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* ============================================================
+   Ninja Selling — Typography tokens
+   Cormorant Garamond — DISPLAY only (headlines, hero, editorial)
+   Open Sans — INTERFACE (body, labels, buttons, all UI)
+   Never swap their roles.
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-ui: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* ---- Weights ---- */
+  --fw-body: 400;     /* @kind font */
+  --fw-medium: 500;   /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700;     /* @kind font */
+
+  /* ---- Display scale (Cormorant Garamond) ----
+     Real-estate-professional, editorial. Generous line-height for calm. */
+  --display-1: 600 64px/1.06 var(--font-display);
+  --display-2: 600 48px/1.08 var(--font-display);
+  --h1: 600 38px/1.12 var(--font-display);
+  --h2: 600 30px/1.16 var(--font-display);
+  --h3: 600 24px/1.22 var(--font-display);
+
+  /* ---- Interface scale (Open Sans) ----
+     Larger than typical SaaS defaults — older professional audience. */
+  --ui-title:   600 20px/1.35 var(--font-ui);  /* section headings in-app */
+  --ui-lead:    400 18px/1.6  var(--font-ui);  /* intro / lead body */
+  --ui-body:    400 16px/1.6  var(--font-ui);  /* default body / UI text */
+  --ui-body-sm: 400 15px/1.55 var(--font-ui);
+  --ui-label:   600 14px/1.3  var(--font-ui);  /* labels, buttons */
+  --ui-meta:    500 13px/1.4  var(--font-ui);  /* captions, meta */
+  --ui-micro:   600 11px/1.3  var(--font-ui);  /* eyebrow / overline (uppercase) */
+
+  /* ---- Letter-spacing ---- */
+  --tracking-display: -0.01em;   /* Cormorant tightens slightly at display sizes */
+  --tracking-tight:   -0.005em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+  --tracking-eyebrow: 0.14em;    /* uppercase overlines / micro-labels */
+}

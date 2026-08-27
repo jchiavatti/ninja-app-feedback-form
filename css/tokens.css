@@ -1,0 +1,146 @@
+/* ============================================================
+   Ninja Selling — design tokens
+   Values copied verbatim from the design-system bundle in
+   design-reference/.../\_ds/tokens/*.css. Do not invent values here.
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette (raw) ---- */
+  --cream:      #EEEAE6;
+  --khaki:      #D7CFBB;
+  --copper:     #977B58;  /* PMS 119U — CTAs, accents */
+  --ocean:      #576F7C;
+  --cool-black: #363A36;
+  --olive:      #485237;
+  --mauve:      #8E6C69;
+
+  /* ---- Tints & shades ---- */
+  --cream-deep:   #E4DED6;
+  --khaki-soft:   #E3DDCF;
+  --khaki-deep:   #C7BCA1;
+
+  --copper-hover: #856A4A;
+  --copper-press: #705942;
+  --copper-tint:  #EDE6DC;
+
+  --ocean-hover:  #4B606B;
+  --ocean-tint:   #E4E8EA;
+
+  --olive-tint:   #E5E7DF;
+  --mauve-tint:   #EDE4E2;
+
+  --cool-black-80: #4A4E49;
+  --cool-black-60: #6E726C;
+  --cool-black-40: #9A9D97;
+
+  /* ---- Surfaces ---- */
+  --surface-page:     var(--cream);
+  --surface-card:     #FFFFFF;
+  --surface-raised:   #FFFFFF;
+  --surface-sunken:   var(--khaki-soft);
+  --surface-inverse:  var(--cool-black);
+  --surface-selected: var(--copper-tint);
+
+  /* ---- Text ---- */
+  --text-strong:   var(--cool-black);
+  --text-body:     var(--cool-black-80);
+  --text-muted:    var(--cool-black-60);
+  --text-subtle:   var(--cool-black-40);
+  --text-on-dark:  var(--cream);
+  --text-accent:   var(--copper);
+  --text-link:     var(--ocean);
+
+  /* ---- Borders / hairlines ---- */
+  --border-hairline: #DED7CC;
+  --border-soft:     var(--khaki);
+  --border-strong:   var(--khaki-deep);
+  --border-inverse:  rgba(238,234,230,0.16);
+
+  /* ---- Interactive / semantic ---- */
+  --accent:       var(--copper);
+  --accent-hover: var(--copper-hover);
+  --accent-press: var(--copper-press);
+  --accent-quiet: var(--copper-tint);
+
+  --focus-ring: var(--ocean);
+
+  --positive:      var(--olive);
+  --positive-tint: var(--olive-tint);
+  --info:          var(--ocean);
+  --info-tint:     var(--ocean-tint);
+  --attention:     var(--mauve);
+  --attention-tint:var(--mauve-tint);
+
+  /* ---- Families ---- */
+  --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-ui: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* ---- Weights ---- */
+  --fw-body: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Display scale (Cormorant Garamond) ---- */
+  --display-1: 600 64px/1.06 var(--font-display);
+  --display-2: 600 48px/1.08 var(--font-display);
+  --h1: 600 38px/1.12 var(--font-display);
+  --h2: 600 30px/1.16 var(--font-display);
+  --h3: 600 24px/1.22 var(--font-display);
+
+  /* ---- Interface scale (Open Sans) ---- */
+  --ui-title:   600 20px/1.35 var(--font-ui);
+  --ui-lead:    400 18px/1.6  var(--font-ui);
+  --ui-body:    400 16px/1.6  var(--font-ui);
+  --ui-body-sm: 400 15px/1.55 var(--font-ui);
+  --ui-label:   600 14px/1.3  var(--font-ui);
+  --ui-meta:    500 13px/1.4  var(--font-ui);
+  --ui-micro:   600 11px/1.3  var(--font-ui);
+
+  /* ---- Letter-spacing ---- */
+  --tracking-display: -0.01em;
+  --tracking-tight:   -0.005em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+  --tracking-eyebrow: 0.14em;
+
+  /* ---- Spacing scale (8px base) ---- */
+  --space-1:  4px;  --space-2:  8px;  --space-3:  12px; --space-4:  16px;
+  --space-5:  20px; --space-6:  24px; --space-7:  32px; --space-8:  40px;
+  --space-9:  48px; --space-10: 64px; --space-11: 80px; --space-12: 120px;
+
+  /* ---- Radius ---- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;   /* inputs, buttons */
+  --radius-md: 14px;   /* menus, inner tiles */
+  --radius-lg: 20px;   /* cards — BRAND RULE */
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Border widths ---- */
+  --hairline: 1px;
+  --stroke: 1.5px;
+
+  /* ---- Shadows (cool-black tinted, never pure black) ---- */
+  --shadow-xs: 0 1px 2px rgba(54, 58, 54, 0.05);
+  --shadow-sm: 0 1px 3px rgba(54, 58, 54, 0.06), 0 1px 2px rgba(54, 58, 54, 0.04);
+  --shadow-card: 0 2px 10px rgba(54, 58, 54, 0.05), 0 1px 3px rgba(54, 58, 54, 0.04);
+  --shadow-raised: 0 8px 28px rgba(54, 58, 54, 0.10), 0 2px 8px rgba(54, 58, 54, 0.06);
+  --shadow-overlay: 0 20px 60px rgba(54, 58, 54, 0.18), 0 6px 18px rgba(54, 58, 54, 0.10);
+
+  /* ---- Focus ---- */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+
+  /* ---- Motion — calm, no bounce ---- */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-out: cubic-bezier(0.2, 0.0, 0.0, 1);
+  --ease-in: cubic-bezier(0.4, 0.0, 1, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+
+  /* ---- Layout ---- */
+  --content-max: 1120px;
+  --touch-min: 48px;
+}
