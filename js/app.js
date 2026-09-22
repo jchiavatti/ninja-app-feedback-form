@@ -1,5 +1,5 @@
 /* ============================================================
-   Ninja Selling app feedback ‚Äî form behaviour
+   Ninja Selling app feedback - form behaviour
    Vanilla JS, no build step. See README.md for the data flow.
    ============================================================ */
 (function () {
@@ -83,7 +83,7 @@
     type: "",
     onBehalf: false,
     editingIdentity: false,
-    images: [],           /* {id, name, url, file} ‚Äî url is an object URL */
+    images: [],           /* {id, name, url, file} - url is an object URL */
     errors: {},
     submitting: false,
     loadedAt: Date.now()
@@ -125,7 +125,7 @@
         name: el.submitterName.value,
         email: el.submitterEmail.value
       }));
-    } catch (e) { /* private mode ‚Äî nothing to do */ }
+    } catch (e) { /* private mode - nothing to do */ }
   }
 
   function hasSavedIdentity() {
@@ -148,7 +148,7 @@
     show(el.lower, !!state.type);
     if (!state.type) return;
 
-    /* Fade the revealed block in ‚Äî only on the transition, not on every render. */
+    /* Fade the revealed block in - only on the transition, not on every render. */
     if (wasHidden) {
       el.lower.classList.remove("nc-reveal");
       void el.lower.offsetWidth;          /* restart the animation */
@@ -170,7 +170,7 @@
     show(el.identityFields, !summarise);
     if (summarise) {
       el.identitySummaryText.textContent =
-        el.submitterName.value + " ¬∑ " + el.submitterEmail.value;
+        el.submitterName.value + " \u00b7 " + el.submitterEmail.value;
     }
     show(el.affectedBlock, state.onBehalf);
   }
@@ -334,7 +334,7 @@
       user_agent: navigator.userAgent,
       submitted_at: new Date().toISOString(),
       images: images,
-      /* spam guards ‚Äî enforced server-side */
+      /* spam guards - enforced server-side */
       company: el.honeypot.value,
       elapsed_ms: Date.now() - state.loadedAt
     };
@@ -349,7 +349,7 @@
     return fetch(CFG.ENDPOINT, {
       method: "POST",
       /* text/plain keeps this a CORS "simple request", so the browser sends no
-         preflight ‚Äî Apps Script web apps do not answer OPTIONS. The body is
+         preflight - Apps Script web apps do not answer OPTIONS. The body is
          still JSON and is parsed as JSON on the other side. */
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload),
@@ -373,7 +373,7 @@
     state.submitting = on;
     el.submitBtn.disabled = on;
     el.submitAnotherBtn.disabled = on;
-    el.submitBtn.textContent = on ? "Sending‚Ä¶" : "Submit Feedback";
+    el.submitBtn.textContent = on ? "Sending\u2026" : "Submit Feedback";
   }
 
   function resetAfterSubmit(clearType) {
@@ -421,7 +421,7 @@
         show(el.confirmation, false);
         el.errSubmit.textContent = err && err.fromServer
           ? err.message
-          : "We couldn't send that just now. Please try again in a moment ‚Äî or email us " +
+          : "We couldn't send that just now. Please try again in a moment \u2014 or email us " +
             "at help@ninjaselling.com and we'll pick it up from there.";
         show(el.errSubmit, true);
         console.error("Ninja Connect submit failed:", err);
@@ -436,7 +436,7 @@
     fillSelect(el.timing, TIMINGS, null);
     el.platform.value = detectPlatform();
     el.timing.value = TIMINGS[0];
-    el.pasteKey.textContent = isMac() ? "‚åòV" : "Ctrl + V";
+    el.pasteKey.textContent = isMac() ? "\u2318V" : "Ctrl + V";
 
     var saved = readSaved();
     el.submitterName.value = saved.name || "";
@@ -485,7 +485,7 @@
     });
     el.acknowledged.addEventListener("change", function () { clearError("acknowledged"); });
 
-    /* Attachments ‚Äî paste anywhere on the page */
+    /* Attachments - paste anywhere on the page */
     document.addEventListener("paste", function (e) {
       var files = e.clipboardData && e.clipboardData.files;
       if (files && files.length) { e.preventDefault(); addFiles(files); }
